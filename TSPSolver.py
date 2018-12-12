@@ -18,7 +18,7 @@ import heapq
 import itertools
 
 from GreedySolver import GreedySolver
-
+from GeneticSolver import GeneticSolver
 
 
 class TSPSolver:
@@ -113,7 +113,9 @@ class TSPSolver:
 	'''
 
 	def fancy( self,time_allowance=60.0 ):
-		pass
+		cities = self._scenario.getCities()
+		solver = GeneticSolver(cities, timeout=time_allowance)
+		return solver.solve()
 
 
 
