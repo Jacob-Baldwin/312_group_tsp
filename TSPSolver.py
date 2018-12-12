@@ -19,6 +19,7 @@ import itertools
 
 from GreedySolver import GreedySolver
 from GeneticSolver import GeneticSolver
+from BranchSolver import BranchSolver
 
 
 class TSPSolver:
@@ -99,7 +100,14 @@ class TSPSolver:
 	'''
 
 	def branchAndBound( self, time_allowance=60.0 ):
-		pass
+		results = {}
+		cities = self._scenario.getCities()
+
+		# I've moved most of the work out to the BranchSolver class declared in BranchSolver.py
+		bs = BranchSolver(cities)
+		results = bs.solve(0)
+
+		return results
 
 
 
