@@ -18,8 +18,6 @@ class GeneticSolver():
     for i in range(n_initial_solutions):
       self.solutions.append(Solution().randomSolution(cities))
 
-    new_solution = Solution().fromParents(self.solutions[0], self.solutions[1])
-
   def solve(self):
     # repeat iterGeneration until timeout or max_generations is reached
     # return the best scored solution
