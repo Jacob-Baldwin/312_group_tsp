@@ -5,7 +5,7 @@ import random
 import time
 
 class GeneticSolver():
-  def __init__(self, cities, timeout=4, n_initial_solutions=4, population_size=100):
+  def __init__(self, cities, timeout=4, n_initial_solutions=100, population_size=100):
     # set self variables for cities, timeout, and max_generations
     # create initial population of Solutions
     self.cities = cities
@@ -27,9 +27,14 @@ class GeneticSolver():
 
     start_time = time.time()
     i = 0
+    timer = time.time()
     while time.time() - start_time < self.timeout:
       i += 1
-      print("gen ", i)
+
+      if time.time() - timer > 10:
+        print("gen ", i)
+        timer = time.time()
+
       self.iterGeneration()
       self.cull()
     end_time = time.time()
