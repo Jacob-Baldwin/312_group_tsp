@@ -104,7 +104,7 @@ class TSPSolver:
 		cities = self._scenario.getCities()
 
 		# I've moved most of the work out to the BranchSolver class declared in BranchSolver.py
-		bs = BranchSolver(cities)
+		bs = BranchSolver(cities, time_allowance=time_allowance)
 		results = bs.solve(0)
 
 		return results

@@ -23,14 +23,14 @@ class GeneticSolver():
     # return the best scored solution
     results = {}
 
-    start_time = time.time()
-    i = 0
+    self.start_time = time.time()
+    self.generation = 0
     timer = time.time()
-    while time.time() - start_time < self.timeout:
-      i += 1
+    while time.time() - self.start_time < self.timeout:
+      self.generation += 1
 
       if time.time() - timer > 10:
-        print("gen ", i)
+        print("GENERATION", self.generation)
         timer = time.time()
 
       self.iterGeneration()
@@ -38,8 +38,8 @@ class GeneticSolver():
     end_time = time.time()
 
     results['cost'] = self.best.solution.cost
-    results['time'] = end_time - start_time
-    results['count'] = i
+    results['time'] = end_time - self.start_time
+    results['count'] = self.generation
     results['soln'] = self.best.solution
     results['max'] = None
     results['total'] = None
@@ -78,6 +78,7 @@ class GeneticSolver():
 
       if self.best == None or self.best.solution.cost > child.solution.cost:
         self.best = child
+        print("Found New Best Solution at t =", time.time() - self.start_time, "generation", self.generation)
 
       self.solutions.append(child)
 
