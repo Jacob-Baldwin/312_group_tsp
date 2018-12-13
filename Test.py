@@ -37,11 +37,11 @@ def generateNetwork(seed, n):
   return scenario
 
 
-# numbers = [15, 30, 60, 100, 200, 300]
-numbers = [15, 20]
-# seeds = [101, 202, 303, 404, 505]
-seeds = [20, 121]
-MAX_TIME = 4
+numbers = [15, 30, 60, 100, 200, 300]
+# numbers = [15, 20]
+seeds = [101, 202, 303, 404, 505, 606]
+# seeds = [20, 121]
+MAX_TIME = 600
 
 results = []
 
